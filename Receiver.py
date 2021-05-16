@@ -22,9 +22,10 @@ while True:
         else:
             packets_data.append(parsed_packet[1])
         Last_correctly_received_id = packet_id
+        serverSocket.sendto(("ACK-{}".format(Last_correctly_received_id)).encode(), client_address)
         if Last_correctly_received_id >= num_of_packets:
             break
-        serverSocket.sendto(("ACK-{}".format(Last_correctly_received_id)).encode(), client_address)
+        
     else:
         serverSocket.sendto(("ACK-{}".format(Last_correctly_received_id)).encode(), client_address)
 
