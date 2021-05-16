@@ -1,1 +1,1 @@
-# Go-Back-N protocol python
+# Go-Back-N Protocol Python
