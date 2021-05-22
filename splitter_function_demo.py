@@ -26,13 +26,13 @@ def get_packets(file_path, mss=50, output_dir="split_files"):
     packets_list = ["0\r\n{}".format(num_packets)]
     # Get and append the successive packets
     for n in range(1, num_packets+1):
-        file = open("./{}/apply_{}.txt".format(output_dir, n))
+        file = open("./{}/{}_{}.txt".format(output_dir, file_path[0:-4], n))
         line = file.read()
         file.close()
         packets_list.append(str(n) + "\r\n" + line)
     return packets_list
 
 
-file_name = "apply.txt"
-packet_list = get_packets(file_name)
-print(packet_list)
+#file_name = "apply.txt"
+#packet_list = get_packets(file_name)
+#print(packet_list)
